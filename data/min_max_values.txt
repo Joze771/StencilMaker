@@ -1,6 +1,6 @@
 MINIMUM VALUES (cm)
 min_n_pin=2
-min_pin_lenght=0.001
+min_pin_length=0.001
 min_pin_width=0.001
 min_dist_x=0.001
 min_pitch=0.001
@@ -9,7 +9,7 @@ min_margin_x=0.01
 min_margin_y=0.01
 MAXIMUM VALUES (cm)
 max_n_pin=128
-max_pin_lenght=1.0
+max_pin_length=1.0
 max_pin_width=1.0
 max_dist_x=10.0
 max_pitch=5.0

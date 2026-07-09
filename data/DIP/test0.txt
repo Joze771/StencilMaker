@@ -1,0 +1,5 @@
+pin_number=6.0
+pin_length=0.11
+pin_width=0.06
+distance_x=0.15
+pin_pitch=0.035

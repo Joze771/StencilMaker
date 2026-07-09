@@ -15,12 +15,14 @@ menu_w = 16
 menu_h = 1
 unit_constant = 10
 log_writing_activated = True
+root_directory = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+icon_path = os.path.join(root_directory, "assets", "icon.ico")
 
 #-----STARTUP FUNCTIONS-----#
 min_max_value = get_min_max_value()
 min_max_value_updated = min_max_value.copy()
 window = create_main_window(package_type, package)
-window.set_icon('icon.ico')
+window.set_icon(icon_path)
 update_min_max_value_box(window, min_max_value, unit_constant)
 date_time = get_date_time()
 
@@ -133,7 +135,7 @@ while True:
                 for input_box in input_elements:
                     input_box.update(readonly = True)
         case 'button_create':
-            personalized_package_name = sg.popup_get_text('Enter custom package name:', icon = 'icon.ico')
+            personalized_package_name = sg.popup_get_text('Enter custom package name:', icon = icon_path)
             try:
                 get_personalized_data(stencil_data, personalized_package_name, package_type)
                 log_write(window['log_window'], date_time, f">>> Custom stencil data saved as {personalized_package_name}.txt.\n")
@@ -179,7 +181,7 @@ while True:
                 run_button_pushed = False
         case 'button_save':
             if same_file_name(file_name, folder):
-                user_choice = sg.popup_ok_cancel('File with this name already exists, overwrite?', title = 'Warning', icon = 'icon.ico')
+                user_choice = sg.popup_ok_cancel('File with this name already exists, overwrite?', title = 'Warning', icon = icon_path)
                 if user_choice == 'OK':
                     save_path = folder + '/' + file_name + '.stl'
                     stencil_stl.export(save_path)
@@ -273,7 +275,7 @@ while True:
                     update_min_max_value_box(window, min_max_value, unit_constant)
         case 'log_check':
             log_writing_activated = values['log_check']
-    print(stencil_data)
+    #print(stencil_data)
 
 #-----SHUTDOWN FUNCTIONS-----#
 window.close()

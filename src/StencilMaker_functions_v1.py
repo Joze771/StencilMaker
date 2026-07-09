@@ -41,7 +41,7 @@ MIN_MAX_VALUE_MAP = {
 }
 
 def get_available_packages(type_package):                                       #Populates the package option menu with the name found in the selected folder (grouped by package type)
-    path = os.getcwd() + '/' + type_package
+    path = os.getcwd() + '/data/' + type_package
     try:
         package_titles = os.listdir(path)
         for i in range(len(package_titles)):
@@ -53,7 +53,7 @@ def get_available_packages(type_package):                                       
     return package_titles
 
 def get_data(type_package, package, package_data):                              #Returns a list with the package data read from the data file
-        path = os.getcwd() + '/' + type_package + '/'
+        path = os.getcwd() + '/data/' + type_package + '/'
         pack_path = path + package + '.txt'
         file = open(pack_path)
         if type_package == 'DIP':
@@ -212,7 +212,7 @@ def generate_stl(type_package, stencil_data):                                   
 
 def get_min_max_value():                                                        #Loads the stencil min-max dimensions into a list from a .txt file in the workspace folder
     min_max_array = [0]*16
-    file_path = os.getcwd() + '/min_max_values.txt' 
+    file_path = os.getcwd() + '/data/min_max_values.txt' 
     file = open(file_path)
     j = 0
     for i in range(18):
@@ -362,13 +362,13 @@ def get_personalized_data(stencil_data, package_name, type_package):            
     stencil_data_local = [str(x) for x in stencil_data ] 
     match type_package:
         case 'DIP':
-            path = os.getcwd() + '/' + type_package + '/'
+            path = os.getcwd() + '/data/' + type_package + '/'
             file = open(path + package_name + '.txt', 'w')
             file_content =  'pin_number='+stencil_data_local[0]+'\n'+'pin_length='+stencil_data_local[1]+'\n'+'pin_width='+stencil_data_local[2]+'\n'+'distance_x='+stencil_data_local[3]+'\n'+'pin_pitch='+stencil_data_local[4]
             file.write(file_content)
             file.close()
         case 'QFP':
-            path = os.getcwd() + '/' + type_package + '/' 
+            path = os.getcwd() + '/data/' + type_package + '/' 
             file = open(path + package_name + '.txt', 'w')
             file_content =  'pin_length=' + stencil_data_local[1] + '\n' + 'pin_width=' + stencil_data_local[2] + '\n' + 'distance_x=' + stencil_data_local[3] + '\n' + 'pin_pitch=' + stencil_data_local[4] + '\n' + 'pin_number_0=' + stencil_data_local[5] + '\n' + 'pin_number_1=' + stencil_data_local[6] + '\n' + 'pin_number_2=' + stencil_data_local[7] + '\n' + 'pin_number_3=' + stencil_data_local[8] + '\n' + 'distance_y=' + stencil_data_local[9]
             file.write(file_content)
@@ -424,7 +424,7 @@ def get_input_data_extreme(event, value, min_max_value_updated, unit_constant): 
     return min_max_value_updated
 
 def update_min_max_value_file(values):                                          #Updates the min-max file with the provided elements
-    file_path = os.getcwd() + '/min_max_values.txt' 
+    file_path = os.getcwd() + '/data/min_max_values.txt' 
     file = open(file_path, 'w')
     file_content = 'MINIMUM VALUES (cm)\n'+'min_n_pin='+str(values[0])+'\nmin_pin_length='+str(values[1])+'\nmin_pin_width='+str(values[2])+'\nmin_dist_x='+str(values[3])+'\nmin_pitch='+str(values[4])+'\nmin_h='+str(values[5])+'\nmin_margin_x='+str(values[6])+'\nmin_margin_y='+str(values[7])+'\nMAXIMUM VALUES (cm)\n'+'max_n_pin='+str(values[8])+'\nmax_pin_length='+str(values[9])+'\nmax_pin_width='+str(values[10])+'\nmax_dist_x='+str(values[11])+'\nmax_pitch='+str(values[12])+'\nmax_h='+str(values[13])+'\nmax_margin_x='+str(values[14])+'\nmax_margin_y='+str(values[15])
     file.write(file_content)

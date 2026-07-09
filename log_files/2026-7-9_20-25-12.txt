@@ -1,0 +1,17 @@
+event: menu_type            value: DIP
+event: menu_package         value: Select package
+event: menu_package         value: SOT23-6
+log string: >>> Data loaded successfully.
+event: input_tolerance      value: 0
+event: input_margin_x       value: 2
+event: input_margin_y       value: 2
+event: input_stencil_height value: 1
+event: button_run           value: None
+log string: >>> Model generated!
+event: button_folder        value: C:/Users/Giuseppe/Desktop/Varie/StencilMaker_v1
+log string: >>> Folder selected: C:/Users/Giuseppe/Desktop/Varie/StencilMaker_v1
+event: button_save          value: None
+
+
+
+"e quindi uscimmo a riveder le stelle"
