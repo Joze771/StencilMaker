@@ -1,0 +1,5 @@
+event: menu_type            value: QFP
+event: menu_package         value: Select package
+event: menu_package         value: Custom
+log string: >>> Enter custom stencil data.
+event: button_clear         value: None

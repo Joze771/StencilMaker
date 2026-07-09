@@ -1,0 +1,5 @@
+n_pin=4
+pin_x=0.08
+pin_y=0.05
+distance_x=0.114
+pin_pitch=0.08

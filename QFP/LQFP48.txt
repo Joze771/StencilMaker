@@ -1,0 +1,9 @@
+pin_lenght=0.05
+pin_width=0.02
+distance_x=0.715
+pin_pitch=0.02
+pin_number_0=12
+pin_number_1=12
+pin_number_2=12
+pin_number_3=12
+distance_y=0.715
